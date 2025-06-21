@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify,CORS
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import torch
 import torch.nn.functional as F
 from model_def import MultiImageClassifier
@@ -31,9 +32,10 @@ transform = transforms.Compose([
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def home():
-    return "🚀 Model API is running!"
+
+@app.route('/api/hello')
+def hello():
+    return jsonify({'message': 'Hello from Flask!'})
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -70,5 +72,5 @@ def predict():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
