@@ -1,8 +1,8 @@
 --index-url https://download.pytorch.org/whl/cpu
-torch==2.3.0+cpu  # إصدار محدث
-torchvision==0.18.0+cpu
 flask==3.0.1
 flask-cors==4.0.0
 Pillow==10.1.0
 gunicorn==21.2.0
 psycopg2-binary==2.9.9
+torch==2.1.2+cpu
+torchvision==0.16.2+cpu
