@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: backend-api
+    env: docker
+    repo: https://github.com/graduationproj2025/backend-api
+    region: oregon
+    branch: main
+    plan: free
+    dockerfilePath: backend-api/Dockerfile
+    autoDeploy: true
