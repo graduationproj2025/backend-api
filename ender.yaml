@@ -1,9 +1,9 @@
 services:
   - type: web
     name: backend-api
-    env: python  # تغيير من docker إلى python
+    env: python
     plan: free
     region: frankfurt
-    branch: main
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    pythonVersion: "3.9.16"  # تحديد الإصدار صراحة
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
