@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: vitascan-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: DATABASE_URL
+        value: <your-database-url>
+    autoDeploy: true
