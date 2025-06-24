@@ -10,8 +10,7 @@ import os
 from datetime import datetime
 from psycopg2.extras import register_default_json, register_default_jsonb
 import traceback
-from backend-api import app, model  # الاستيراد من الحزمة
-__version__ = "1.0.0" 
+
 
 # دعم JSON للـ psycopg2
 register_default_json(loads=lambda x: x)
