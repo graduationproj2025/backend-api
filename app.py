@@ -10,6 +10,8 @@ import os
 from datetime import datetime
 from psycopg2.extras import register_default_json, register_default_jsonb
 import traceback
+from backend-api import app, model  # الاستيراد من الحزمة
+__version__ = "1.0.0" 
 
 # دعم JSON للـ psycopg2
 register_default_json(loads=lambda x: x)
@@ -217,5 +219,5 @@ def stats():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
-
+    port = int(os.environ.get("PORT", 5000))
+    app.run()
