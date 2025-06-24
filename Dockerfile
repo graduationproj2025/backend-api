@@ -1,18 +1,15 @@
-# استخدم صورة بايثون الرسمية
+# استخدمي صورة بايثون مناسبة
 FROM python:3.10-slim
 
-# إعداد مجلد العمل
+# ضبط مجلد العمل
 WORKDIR /app
 
-# نسخ الملفات إلى الحاوية
-COPY . /app
+# نسخ الملفات
+COPY . .
 
-# تثبيت pip وتثبيت المتطلبات
+# تثبيت المتطلبات
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
-# فتح المنفذ
-EXPOSE 10000
-
-# أمر التشغيل
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "app:app"]
+# تشغيل التطبيق عبر gunicorn
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app"]
